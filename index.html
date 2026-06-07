@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ▼▼▼ ① ブラウザのタブに出るタイトル。あなたの名前に変えてください ▼▼▼ -->
+<title>山田 太郎 — Portfolio</title>
+<!-- ▲▲▲ ここまで ▲▲▲ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #f4f0e8;       /* 背景（クリーム） */
+    --ink: #1c1a17;         /* 文字（ほぼ黒） */
+    --ink-soft: #5a554c;    /* 薄い文字 */
+    --accent: #c0492b;      /* アクセント（テラコッタ） */
+    --line: #d6cfc1;        /* 罫線 */
+    --serif: "Fraunces", "Shippori Mincho", serif;
+    --jp: "Zen Kaku Gothic New", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--jp);
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* 紙のような微細なノイズ */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  /* ===== ヘッダー ===== */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .logo { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: 0.02em; }
+  nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 28px;
+    letter-spacing: 0.04em;
+    transition: color 0.25s;
+  }
+  nav a:hover { color: var(--accent); }
+  @media (max-width: 600px) { nav a { margin-left: 16px; } .logo { font-size: 18px; } }
+
+  /* ===== ヒーロー ===== */
+  .hero { padding: 120px 0 90px; }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 8vw, 96px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero .lead {
+    margin-top: 36px;
+    max-width: 560px;
+    font-size: 18px;
+    color: var(--ink-soft);
+  }
+
+  /* ===== セクション見出し ===== */
+  .section { padding: 80px 0; border-top: 1px solid var(--line); }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+  .section-head .num { font-family: var(--serif); font-size: 14px; color: var(--accent); }
+  .section-head h2 { font-family: var(--serif); font-weight: 500; font-size: 32px; }
+
+  /* ===== About ===== */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .about-grid p { font-size: 16px; color: var(--ink-soft); }
+  .skills { list-style: none; }
+  .skills li { padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; }
+  .skills li span:last-child { color: var(--ink-soft); font-size: 14px; }
+  @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* ===== 作品リスト ===== */
+  .work {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+    transition: padding-left 0.35s ease, background 0.35s ease;
+  }
+  .work:last-child { border-bottom: 1px solid var(--line); }
+  .work:hover { padding-left: 16px; }
+  .work .w-num { font-family: var(--serif); color: var(--accent); font-size: 15px; }
+  .work .w-title { font-family: var(--serif); font-size: clamp(22px, 3.5vw, 34px); font-weight: 400; }
+  .work .w-meta { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+  .work .w-arrow { font-size: 22px; color: var(--ink-soft); transition: transform 0.35s, color 0.35s; }
+  .work:hover .w-arrow { transform: translateX(8px); color: var(--accent); }
+  @media (max-width: 600px) {
+    .work { grid-template-columns: 40px 1fr; }
+    .work .w-arrow { display: none; }
+  }
+
+  /* ===== 連絡先 ===== */
+  .contact h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 6vw, 64px); line-height: 1.1; }
+  .contact h2 em { font-style: italic; color: var(--accent); }
+  .contact a.mail {
+    display: inline-block;
+    margin-top: 32px;
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 4px;
+    transition: color 0.25s;
+  }
+  .contact a.mail:hover { color: var(--accent); }
+  .socials { margin-top: 40px; display: flex; gap: 28px; }
+  .socials a { color: var(--ink-soft); text-decoration: none; font-size: 14px; letter-spacing: 0.05em; transition: color 0.25s; }
+  .socials a:hover { color: var(--accent); }
+
+  footer { padding: 48px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-soft); display: flex; justify-content: space-between; }
+
+  /* ===== 登場アニメーション ===== */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <!-- ▼▼▼ ② ロゴ＝あなたの名前（ローマ字でもOK） ▼▼▼ -->
+    <div class="logo">Taro Yamada</div>
+    <!-- ▲▲▲ -->
+    <nav>
+      <a href="#about">About</a>
+      <a href="#works">Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== ヒーロー ===== -->
+  <section class="hero">
+    <p class="eyebrow reveal">Portfolio</p>
+    <!-- ▼▼▼ ③ キャッチコピー。<em>～</em> で囲んだ部分が斜体＋アクセント色になります ▼▼▼ -->
+    <h1 class="reveal">ものづくりで、<br><em>世界</em>を少し<br>おもしろく。</h1>
+    <!-- ▲▲▲ -->
+    <!-- ▼▼▼ ④ 自己紹介の一文 ▼▼▼ -->
+    <p class="lead reveal">グラフィックデザインと Web 制作を中心に活動しているデザイナーです。手を動かしながら、伝わるかたちを探しています。</p>
+    <!-- ▲▲▲ -->
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="section" id="about">
+    <div class="section-head reveal">
+      <span class="num">01</span>
+      <h2>About</h2>
+    </div>
+    <div class="about-grid">
+      <!-- ▼▼▼ ⑤ 自己紹介の本文 ▼▼▼ -->
+      <p class="reveal">
+        はじめまして、山田太郎です。〇〇県出身、〇〇大学でデザインを学んだのち、フリーランスとして活動しています。<br><br>
+        ロゴ、ポスター、Web サイトなど、ジャンルを問わず「伝わるデザイン」を心がけています。趣味は写真と散歩。日々の小さな発見を制作のヒントにしています。
+      </p>
+      <!-- ▲▲▲ -->
+      <!-- ▼▼▼ ⑥ スキル・できること（左：項目／右：補足） ▼▼▼ -->
+      <ul class="skills reveal">
+        <li><span>ブランディング</span><span>ロゴ・VI</span></li>
+        <li><span>グラフィック</span><span>ポスター・冊子</span></li>
+        <li><span>Web デザイン</span><span>制作・コーディング</span></li>
+        <li><span>写真撮影</span><span>物撮り・人物</span></li>
+      </ul>
+      <!-- ▲▲▲ -->
+    </div>
+  </section>
+
+  <!-- ===== Works（作品） ===== -->
+  <section class="section" id="works">
+    <div class="section-head reveal">
+      <span class="num">02</span>
+      <h2>Selected Works</h2>
+    </div>
+
+    <!-- ▼▼▼ ⑦ 作品を1つずつ。href="#" を作品ページや外部URLに変えると、クリックで飛べます ▼▼▼ -->
+    <a class="work reveal" href="#">
+      <span class="w-num">01</span>
+      <span>
+        <div class="w-title">Cafe LUMI ブランディング</div>
+        <div class="w-meta">ロゴ・パッケージ — 2024</div>
+      </span>
+      <span class="w-arrow">→</span>
+    </a>
+
+    <a class="work reveal" href="#">
+      <span class="w-num">02</span>
+      <span>
+        <div class="w-title">展覧会ポスター「光と影」</div>
+        <div class="w-meta">グラフィック — 2024</div>
+      </span>
+      <span class="w-arrow">→</span>
+    </a>
+
+    <a class="work reveal" href="#">
+      <span class="w-num">03</span>
+      <span>
+        <div class="w-title">アパレルブランド EC サイト</div>
+        <div class="w-meta">Web デザイン・制作 — 2023</div>
+      </span>
+      <span class="w-arrow">→</span>
+    </a>
+
+    <a class="work reveal" href="#">
+      <span class="w-num">04</span>
+      <span>
+        <div class="w-title">写真集『まちの呼吸』</div>
+        <div class="w-meta">撮影・編集 — 2023</div>
+      </span>
+      <span class="w-arrow">→</span>
+    </a>
+    <!-- ▲▲▲ 作品を増やす時は、上の <a class="work">～</a> をコピーして貼り付け ▲▲▲ -->
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section contact" id="contact">
+    <div class="section-head reveal">
+      <span class="num">03</span>
+      <h2 style="font-size:32px;">Contact</h2>
+    </div>
+    <!-- ▼▼▼ ⑧ お問い合わせの呼びかけ ▼▼▼ -->
+    <h2 class="reveal">お仕事のご相談、<br><em>お気軽に</em>どうぞ。</h2>
+    <!-- ▼▼▼ ⑨ メールアドレス（2か所とも書き換え）▼▼▼ -->
+    <a class="mail reveal" href="mailto:hello@example.com">hello@example.com</a>
+    <!-- ▲▲▲ -->
+    <!-- ▼▼▼ ⑩ SNS。リンク（href）を自分のアカウントに変更。不要な行は削除OK ▼▼▼ -->
+    <div class="socials reveal">
+      <a href="#" target="_blank">Instagram</a>
+      <a href="#" target="_blank">X (Twitter)</a>
+      <a href="#" target="_blank">Behance</a>
+    </div>
+    <!-- ▲▲▲ -->
+  </section>
+
+  <footer>
+    <span>© 2026 Taro Yamada</span>
+    <span>Made with care</span>
+  </footer>
+
+</div>
+
+<script>
+  // スクロールで要素をふわっと表示
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
