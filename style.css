@@ -1,0 +1,105 @@
+/* =========================================================
+   やまのらぼ ポートフォリオ 共通スタイル
+   ※色を変えたいときは下の :root の値をいじってください
+   ========================================================= */
+
+:root {
+  --paper:  #fff3d6;   /* 背景（あたたかいクリーム） */
+  --ink:    #211d1a;   /* 文字・枠線（こげ茶の黒） */
+  --coral:  #ff5a3c;   /* 赤 */
+  --sky:    #2f9bff;   /* 青 */
+  --sun:    #ffc328;   /* 黄 */
+  --grape:  #8a5cff;   /* 紫 */
+  --mint:   #18c79a;   /* 緑 */
+  --pink:   #ff5aa8;   /* ピンク */
+
+  --shadow: 6px 6px 0 var(--ink);
+  --shadow-sm: 4px 4px 0 var(--ink);
+
+  --disp: "Mochiy Pop One", "Fredoka", sans-serif; /* 見出し */
+  --body: "Zen Maru Gothic", sans-serif;            /* 本文 */
+  --num:  "Fredoka", sans-serif;                    /* 数字など */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  color: var(--ink);
+  background-color: var(--paper);
+  /* 背景の水玉模様 */
+  background-image: radial-gradient(var(--ink) 1.4px, transparent 1.4px);
+  background-size: 26px 26px;
+  background-attachment: fixed;
+  line-height: 1.85;
+  overflow-x: hidden;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== ヘッダー ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+}
+.logo {
+  font-family: var(--disp);
+  font-size: 26px;
+  background: var(--sun);
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  padding: 6px 16px;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--ink);
+  transform: rotate(-2deg);
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.logo:hover { transform: rotate(2deg) scale(1.05); }
+nav a {
+  font-family: var(--disp);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 15px;
+  margin-left: 18px;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.2s;
+}
+nav a:hover { border-color: var(--coral); }
+@media (max-width: 560px) {
+  nav a { margin-left: 12px; font-size: 13px; }
+  .logo { font-size: 20px; }
+}
+
+/* ===== 共通：枠付きカラーバッジ ===== */
+.badge {
+  display: inline-block;
+  font-family: var(--disp);
+  font-size: 13px;
+  padding: 4px 14px;
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== 登場アニメ ===== */
+.pop { opacity: 0; transform: translateY(26px) rotate(-1deg); transition: opacity .6s, transform .6s cubic-bezier(.34,1.56,.64,1); }
+.pop.in { opacity: 1; transform: none; }
+
+/* ===== ふわふわ浮かぶ飾り ===== */
+.deco { position: absolute; z-index: 0; animation: floaty 6s ease-in-out infinite; pointer-events: none; }
+@keyframes floaty { 0%,100%{ transform: translateY(0) rotate(0); } 50%{ transform: translateY(-18px) rotate(8deg); } }
+
+/* ===== フッター ===== */
+footer {
+  text-align: center;
+  padding: 50px 0 70px;
+  font-family: var(--disp);
+  font-size: 14px;
+}
+footer .heart { color: var(--coral); }

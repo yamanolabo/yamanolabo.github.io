@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アパレルブランドのECサイト — やまのらぼ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .work-hero {
+    background: var(--sun); color: var(--ink);
+    border:3px solid var(--ink); border-radius:28px;
+    padding: 48px 36px; box-shadow: var(--shadow);
+    margin: 24px 0 50px; position: relative; overflow:hidden;
+  }
+  .work-hero .badge { background:#fff; color:var(--ink); transform: rotate(-2deg); }
+  .work-hero h1 { font-family:var(--disp); font-size: clamp(30px,6vw,56px); line-height:1.25; margin:18px 0 14px; }
+  .work-hero .year { font-family:var(--num); font-weight:600; opacity:.9; }
+  .work-hero .lead { margin-top:18px; font-weight:500; max-width:640px; font-size:17px; }
+
+  .block { margin: 40px 0; }
+  .block h2 {
+    font-family:var(--disp); font-size:24px; display:inline-block;
+    background:#fff; border:3px solid var(--ink); border-radius:14px;
+    padding:4px 18px; box-shadow:var(--shadow-sm); margin-bottom:18px; transform: rotate(-1deg);
+  }
+  .block p { font-size:16px; font-weight:500; }
+  .block ul { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:6px; }
+  @media(max-width:560px){ .block ul{ grid-template-columns:1fr; } }
+  .block li {
+    background:#fff; border:3px solid var(--ink); border-radius:14px;
+    padding:12px 16px; box-shadow:var(--shadow-sm); font-weight:500; font-size:15px;
+  }
+  .block li::before { content:"✔ "; color: var(--sun); font-weight:700; }
+
+  /* 画像プレースホルダ（あとで写真に差し替え用） */
+  .gallery { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:8px; }
+  @media(max-width:560px){ .gallery{ grid-template-columns:1fr; } }
+  .ph {
+    aspect-ratio: 4/3; background: var(--sun); color:var(--ink);
+    border:3px solid var(--ink); border-radius:18px; box-shadow:var(--shadow-sm);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:var(--disp); font-size:14px; opacity:.92; padding:10px;
+  }
+
+  .pager { display:flex; justify-content:space-between; gap:14px; margin: 56px 0 10px; flex-wrap:wrap; }
+  .pager a, .home-link {
+    font-family:var(--disp); font-size:15px; text-decoration:none; color:var(--ink);
+    background:#fff; border:3px solid var(--ink); border-radius:14px;
+    padding:10px 20px; box-shadow:var(--shadow-sm); transition: transform .15s;
+  }
+  .pager a:hover, .home-link:hover { transform: translateY(-3px); }
+  .home-wrap { text-align:center; margin: 10px 0 20px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <a class="logo" href="index.html">やまのらぼ</a>
+    <nav>
+      <a href="index.html#works">← 作品一覧</a>
+    </nav>
+  </header>
+
+  <div class="work-hero pop">
+    <div class="deco" style="right:24px; top:18px; font-size:40px;">🛍️</div>
+    <span class="badge">Web制作</span>
+    <h1>アパレルブランドの<br>ECサイト</h1>
+    <span class="year">2023</span>
+    <p class="lead">アパレルブランドのオンラインショップを、デザインからコーディングまで担当しました。スマホでサクサク買い物できる、軽快な使い心地を大切にしています。</p>
+  </div>
+
+  <!-- ▼ 概要 ▼ -->
+  <div class="block pop">
+    <h2>概要 📝</h2>
+    <p>「服が主役」になるよう、余白をたっぷりとったシンプルな構成に。写真が映えるレイアウトと、迷わず買える導線づくりに力を入れました。</p>
+  </div>
+
+  <!-- ▼ 写真をあとで差し替え。下の <div class="ph">…</div> を
+       <img src="ファイル名.jpg" style="width:100%;border:3px solid var(--ink);border-radius:18px;"> に変えると画像が入ります ▼ -->
+  <div class="block pop">
+    <h2>ギャラリー 📸</h2>
+    <div class="gallery">
+      <div class="ph">ここに写真①<br>（差し替えてね）</div>
+      <div class="ph">ここに写真②</div>
+      <div class="ph">ここに写真③</div>
+      <div class="ph">ここに写真④</div>
+    </div>
+  </div>
+
+  <!-- ▼ やったこと ▼ -->
+  <div class="block pop">
+    <h2>やったこと 🔧</h2>
+    <ul>
+      <li>サイト全体のデザイン</li>
+      <li>HTML/CSSコーディング</li>
+      <li>商品写真のレタッチ</li>
+      <li>スマホ表示の最適化</li>
+    </ul>
+  </div>
+
+  <!-- ▼ こだわりポイント ▼ -->
+  <div class="block pop">
+    <h2>こだわり ✨</h2>
+    <p>読み込みの速さにこだわって、画像を軽くする工夫をたくさん仕込みました。カートに入れたときの小さなアニメーションも、楽しんでもらえたらうれしいポイントです。</p>
+  </div>
+
+  <!-- ▼ 前後の作品へのリンク ▼ -->
+  <div class="pager">
+    <a href="work-02.html">← まえの作品</a>
+    <a href="work-04.html">つぎの作品 →</a>
+  </div>
+  <div class="home-wrap">
+    <a class="home-link" href="index.html">🏠 トップにもどる</a>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 やまのらぼ ／ made with <span class="heart">&hearts;</span> and &#9749;
+</footer>
+
+<script>
+  const io = new IntersectionObserver((es)=>{
+    es.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('in'), i*70); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.pop').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
