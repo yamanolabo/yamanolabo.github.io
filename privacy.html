@@ -204,6 +204,21 @@
       渡したあとのデータの取り扱いは、共有先のアプリの提供者の定めるところによります。
     </p>
 
+    <h3>まとめて書き出すとき</h3>
+    <p>
+      アプリ内のデータをまとめて1つのファイルに書き出す機能がある場合、
+      その機能は利用者が保存先を選んだときにのみ動作し、書き出し先は利用者が指定した場所です。
+      当方がそのファイルを受け取ることはなく、内容を知ることもありません。
+      書き出したファイルには利用者が取り込んだファイルの中身が入りますので、
+      置き場所の管理は利用者にお任せしています（他社のクラウドを選んだ場合は、その提供者の定めが適用されます）。
+    </p>
+    <h3>鍵（暗証番号）について</h3>
+    <p>
+      起動時に暗証番号を求める機能がある場合、番号そのものは保存しません。
+      端末ごとに異なる値を混ぜて計算した結果だけを端末内に保存し、照合に使います。
+      書き出したファイルにも番号は入りません。
+    </p>
+
     <h2><span class="n">6.</span>アプリ内課金について</h2>
     <p>
       アプリ内課金がある場合、決済の処理と購入履歴の管理は、すべて Google Play が行います。
@@ -241,8 +256,10 @@
       <li>Android の権限をひとつも宣言していません。</li>
       <li>動画と画像は、端末のシステム写真ピッカーで選ぶか、他のアプリの「共有」から受け取ります。端末全体を探索することはありません。</li>
       <li>取り込んだ動画とジャケット画像は、アプリ専用の領域に控えとして保存されます。</li>
-      <li>棚の上限解除と一部デザインの利用を可能にする、買い切りのアプリ内課金があります。</li>
+      <li>棚の上限解除、一部デザイン、まとめての書き出しと復元、起動時の鍵を使えるようにする、買い切りのアプリ内課金があります。</li>
       <li>取り込んだ動画やジャケット画像を、利用者の操作で他のアプリへ渡す機能があります。</li>
+      <li>棚の構成と動画・ジャケットをまとめて1つのファイルに書き出す機能があります。保存先は利用者が選び、当方は関与しません。</li>
+      <li>起動時に暗証番号を求める設定ができます。番号は保存せず、端末ごとの値を混ぜて計算した結果だけを保存します。番号を忘れた場合、アプリのデータを消す以外に解除する方法はありません（当方でも解除できません）。</li>
     </ul>
 
     <h2><span class="n">10.</span>本ポリシーの変更</h2>
@@ -275,7 +292,10 @@
         information. Uninstalling an app removes all of its data from your device.
       </p>
       <p style="margin-top:12px">
-        MOVIE Shelf ~DVD Collection~ declares no Android permissions at all.
+        MOVIE Shelf ~DVD Collection~ declares no Android permissions at all. Its backup
+        feature writes a single file to a location you choose; we never receive it. Its
+        optional launch PIN is not stored — only a salted hash of it is kept on the
+        device, and it cannot be recovered by us if you forget it.
       </p>
       <p style="margin-top:12px">
         Contact: <a href="mailto:yamanolabo@outlook.jp">yamanolabo@outlook.jp</a>
